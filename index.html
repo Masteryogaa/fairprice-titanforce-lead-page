@@ -1,315 +1,767 @@
 <!DOCTYPE html>
+<!--
+  FairPrice Movers · Reading, PA — DEMO inquiry page built by TitanForce Movers for a partner pitch.
+
+  Status: demo. Not to be made public until FairPrice Movers gives written approval of the
+  copy, the photos and the inquiry routing. Until then the page stays noindex and the Vercel
+  project stays paused. See README.md.
+
+  Facts and quotes on this page come only from the research pack: FairPrice's own site
+  (fairpricemovers.com Reading pages), public reviews on Google, Yelp (via MapQuest / Yahoo
+  Local), Nextdoor and moveBuddha. Nothing is invented. No prices appear anywhere.
+
+  Rating line policy: only a rating that names its source and the number we checked is shown.
+  Owner-stated figure, NOT shown on the page: "4.9 stars, 146 reviews on Google Business
+  Profile" — owner-stated, verify on GBP before sending.
+
+  Photos: every <figure data-replace="Fairprice-supplied photo"> hotlinks an image from
+  fairpricemovers.com as a placeholder only. They are FairPrice's own uploads (c) FairPrice
+  Movers. None is copied into this repo. Replace each with a photo FairPrice supplies before
+  any public launch.
+
+  Logo: FairPrice's logo (https://fairpricemovers.com/wp-content/uploads/2022/12/fp-movers-logo.png)
+  is a brand asset and is NOT used here. The header uses a text wordmark until FairPrice
+  provides the logo file and permission.
+-->
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fairprice Movers of Eastern PA | Local & Long-Distance | Powered by TitanForce</title>
-<meta name="description" content="Fairprice Movers of Eastern PA. Local and long-distance moves across the country. Licensed, insured, direct crews. 4.9 stars, 146+ reviews, 11 years. Powered by TitanForce labor crew.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FairPrice Movers Reading, PA | Local and Long-Distance Movers</title>
+<meta name="description" content="FairPrice Movers' Reading, PA branch: local and long-distance moving, packing and unpacking, last-minute moves, piano and antique handling. Call (610) 628-2524 or request a quote online.">
+<!-- Demo page: keep noindex until FairPrice approves a public launch. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MovingCompany",
+  "name": "FairPrice Movers",
+  "url": "https://fairpricemovers.com/movers-near-me/pennsylvania/reading/",
+  "telephone": "+1-610-628-2524",
+  "foundingDate": "2011",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "306 S 10th St",
+    "addressLocality": "Reading",
+    "addressRegion": "PA",
+    "postalCode": "19602",
+    "addressCountry": "US"
+  },
+  "areaServed": ["Reading, PA", "Berks County, PA", "Southeastern Pennsylvania"]
+}
+</script>
 <style>
+  /*
+    Palette and type follow fairpricemovers.com: Roboto body, Nunito headings,
+    FairPrice red #c90708 as the single accent on a white page.
+  */
   :root{
-    --bg:#0b0b10; --surface:#16161f; --surface2:#1e1e2a;
-    --text:#f4f4f7; --muted:#9b9baa; --accent:#f5c518; --accent2:#ff6b35;
-    --green:#22c55e; --border:#2c2c3a; --radius:16px;
+    --red:#c90708; --red-dark:#9e0506; --red-soft:#fdecec;
+    --ink:#1d2433; --ink-2:#4a5568; --ink-3:#6b7280;
+    --line:#e5e7eb; --paper:#ffffff; --paper-2:#f7f8fa; --paper-3:#f1f3f6;
+    --focus:#1d4ed8;
+    --radius:14px; --radius-sm:10px;
+    --shadow:0 10px 30px rgba(29,36,51,.08);
+    color-scheme:light;
   }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:Roboto,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.6;color:var(--ink);background:var(--paper);overflow-x:hidden}
+  img,svg{display:block;max-width:100%}
+  a{color:var(--red-dark)}
+  a:hover{color:var(--red)}
+  :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+  h1,h2,h3,h4{font-family:Nunito,Roboto,system-ui,sans-serif;font-weight:800;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+  h1{font-size:clamp(1.85rem,4.6vw,3rem)}
+  h2{font-size:clamp(1.5rem,3.2vw,2.15rem);margin-bottom:.6rem}
+  h3{font-size:1.1rem;margin-bottom:.35rem}
+  p{color:var(--ink-2)}
+  .wrap{width:100%;max-width:1140px;margin:0 auto;padding:0 16px}
+  @media (min-width:720px){.wrap{padding:0 24px}}
+  .eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:.6rem}
+  .lead{font-size:1.1rem;max-width:62ch}
+  .muted{color:var(--ink-3)}
+  .small{font-size:.9rem}
+  section{padding:64px 0}
+  @media (max-width:719px){section{padding:48px 0}}
+  .alt{background:var(--paper-2)}
 
-  nav{position:sticky;top:0;z-index:100;background:rgba(11,11,16,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-weight:800;font-size:1.15rem;letter-spacing:-.02em}
-  .logo span{color:var(--accent)}
-  .nav-links{display:flex;gap:28px;list-style:none}
-  .nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
-  .nav-links a:hover{color:var(--text)}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;transition:transform .15s,box-shadow .15s;cursor:pointer;border:none}
-  .btn:hover{transform:translateY(-2px)}
-  .btn-primary{background:var(--accent);color:#0b0b10;box-shadow:0 8px 24px rgba(245,197,24,.25)}
-  .btn-primary:hover{box-shadow:0 12px 32px rgba(245,197,24,.4)}
-  .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
-  .btn-ghost:hover{border-color:var(--muted)}
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;padding:.75rem 1.25rem;border-radius:999px;font-weight:700;font-size:1rem;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:inherit;transition:background .15s,color .15s,border-color .15s}
+  .btn svg{width:20px;height:20px;flex:none}
+  .btn-primary{background:var(--red);color:#fff}
+  .btn-primary:hover{background:var(--red-dark);color:#fff}
+  .btn-outline{background:#fff;color:var(--ink);border-color:var(--line)}
+  .btn-outline:hover{border-color:var(--ink);color:var(--ink)}
+  .btn-block{width:100%}
+  .btn[disabled]{opacity:.65;cursor:default}
 
-  .hero{padding:96px 0 80px;position:relative}
-  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(245,197,24,.12),transparent);pointer-events:none}
-  .hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center;position:relative}
-  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--surface2);border:1px solid var(--border);border-radius:999px;padding:6px 14px;font-size:.8rem;font-weight:600;color:var(--accent);margin-bottom:20px}
-  .eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-  h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:20px}
-  h1 em{font-style:normal;color:var(--accent)}
-  .hero p.lead{font-size:1.15rem;color:var(--muted);max-width:500px;margin-bottom:32px}
-  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
-  .hero-stats{display:flex;gap:32px;margin-top:48px;padding-top:32px;border-top:1px solid var(--border)}
-  .stat b{display:block;font-size:1.6rem;font-weight:800;color:var(--text)}
-  .stat span{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-  .hero-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px;box-shadow:0 24px 64px rgba(0,0,0,.5)}
-  .hero-card h3{font-size:1.1rem;margin-bottom:20px}
-  .form-row{margin-bottom:16px}
-  .form-row label{display:block;font-size:.8rem;font-weight:600;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
-  .form-row input,.form-row select{width:100%;padding:12px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:.95rem;font-family:inherit;transition:border-color .2s}
-  .form-row input:focus,.form-row select:focus{outline:none;border-color:var(--accent)}
-  .form-row select option{background:var(--surface2)}
-  .btn-full{width:100%;justify-content:center;margin-top:8px}
-  .form-note{font-size:.75rem;color:var(--muted);text-align:center;margin-top:12px}
+  /* Header */
+  .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:68px}
+  .wordmark{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);line-height:1.1}
+  .wordmark b{font-family:Nunito,sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:-.01em}
+  .wordmark b span{color:var(--red)}
+  .wordmark small{font-size:.74rem;color:var(--ink-3);font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+  .header-nav{display:none;gap:22px;list-style:none}
+  .header-nav a{color:var(--ink-2);text-decoration:none;font-weight:500;font-size:.95rem}
+  .header-nav a:hover{color:var(--red)}
+  @media (min-width:900px){.header-nav{display:flex}}
+  .header-actions{display:flex;gap:10px;align-items:center}
+  .header-actions .btn{min-height:42px;padding:.5rem 1rem;font-size:.95rem}
+  .header-actions .btn-quote{display:none}
+  @media (min-width:560px){.header-actions .btn-quote{display:inline-flex}}
 
-  section{padding:80px 0}
-  .section-label{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:12px}
-  h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;letter-spacing:-.02em;margin-bottom:16px}
-  .section-sub{color:var(--muted);max-width:560px;margin-bottom:48px;font-size:1.05rem}
+  /* Hero */
+  .hero{padding:48px 0 56px;background:linear-gradient(180deg,var(--paper-2) 0%,#fff 100%)}
+  .hero-grid{display:grid;gap:36px;align-items:start}
+  @media (min-width:900px){.hero-grid{grid-template-columns:1.1fr .9fr;gap:48px}.hero{padding:72px 0 80px}}
+  .hero h1{margin:.3rem 0 1rem}
+  .hero .lead{margin-bottom:1.5rem}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:1.5rem}
+  .phone-big{font-family:Nunito,sans-serif;font-weight:800;font-size:1.15rem}
+  .rating-line{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;font-size:.95rem;color:var(--ink-2)}
+  .rating-line .stars{display:inline-flex;gap:2px}
+  .rating-line .stars svg{width:18px;height:18px;fill:#f5a623}
+  .rating-line a{color:var(--ink-3)}
+  .hero-figure{margin-top:28px}
 
-  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-  .service{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:transform .2s,border-color .2s}
-  .service:hover{transform:translateY(-4px);border-color:var(--accent)}
-  .service-icon{width:48px;height:48px;border-radius:12px;background:rgba(245,197,24,.1);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:16px}
-  .service h3{font-size:1.1rem;margin-bottom:8px}
-  .service p{font-size:.9rem;color:var(--muted)}
+  /* Figures (photo placeholders) */
+  figure{margin:0}
+  figure.photo{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--paper-3);border:1px solid var(--line)}
+  figure.photo img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+  figure.photo.tall img{aspect-ratio:4/3}
+  figure.photo figcaption{position:absolute;left:10px;bottom:10px;font-size:.72rem;line-height:1.3;color:#fff;background:rgba(29,36,51,.75);padding:.3rem .55rem;border-radius:6px;max-width:calc(100% - 20px)}
 
-  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;counter-reset:step}
-  .step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px;position:relative;counter-increment:step}
-  .step::before{content:counter(step);position:absolute;top:-16px;left:24px;width:40px;height:40px;border-radius:50%;background:var(--accent);color:#0b0b10;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 4px 16px rgba(245,197,24,.3)}
-  .step h3{font-size:1.15rem;margin:12px 0 8px}
-  .step p{font-size:.9rem;color:var(--muted)}
+  /* Quote card */
+  .quote-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+  @media (min-width:720px){.quote-card{padding:28px}}
+  .quote-card h2{font-size:1.35rem;margin-bottom:.25rem}
+  .quote-card .sub{font-size:.92rem;margin-bottom:1.1rem}
+  .field{margin-bottom:.9rem}
+  .field label{display:block;font-size:.84rem;font-weight:700;color:var(--ink-2);margin-bottom:.3rem}
+  .field label .opt{font-weight:400;color:var(--ink-3)}
+  .field input,.field select,.field textarea{width:100%;min-height:46px;padding:.65rem .8rem;border:1px solid #cfd4dc;border-radius:var(--radius-sm);background:#fff;font:inherit;font-size:1rem;color:var(--ink)}
+  .field textarea{min-height:88px;resize:vertical}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--focus);outline:3px solid rgba(29,78,216,.18);outline-offset:0}
+  .field-row{display:grid;gap:.9rem}
+  @media (min-width:480px){.field-row{grid-template-columns:1fr 1fr}}
+  .hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+  .form-note{font-size:.82rem;color:var(--ink-3);margin-top:.8rem;text-align:center}
+  .status{display:none;margin-top:1rem;padding:.9rem 1rem;border-radius:var(--radius-sm);font-weight:500;line-height:1.5}
+  .status.show{display:block}
+  .status.ok{background:#ecfdf3;border:1px solid #b7ebc6;color:#14532d}
+  .status.err{background:var(--red-soft);border:1px solid #f5b5b5;color:#7f1d1d}
+  .status a{color:inherit;font-weight:700}
 
-  .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-  .review{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
-  .stars{color:var(--accent);letter-spacing:2px;margin-bottom:12px;font-size:.9rem}
-  .review p{font-size:.95rem;color:var(--muted);margin-bottom:16px;font-style:italic}
-  .reviewer{font-size:.85rem;font-weight:600}
-  .reviewer span{color:var(--muted);font-weight:400}
+  /* Trust strip */
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;padding:22px 0}
+  .trust-grid{display:grid;gap:18px}
+  @media (min-width:720px){.trust-grid{grid-template-columns:repeat(4,1fr)}}
+  .trust-item{display:flex;gap:12px;align-items:flex-start}
+  .trust-item svg{width:26px;height:26px;flex:none;stroke:var(--red);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+  .trust-item b{display:block;font-size:.95rem;color:var(--ink)}
+  .trust-item span{font-size:.86rem;color:var(--ink-3)}
 
-  .cta-band{background:linear-gradient(135deg,rgba(245,197,24,.15),rgba(255,107,53,.08));border:1px solid var(--border);border-radius:24px;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
-  .cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(245,197,24,.1),transparent 60%)}
-  .cta-band h2{position:relative}
-  .cta-band p{position:relative;color:var(--muted);margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto}
+  /* Cards */
+  .grid{display:grid;gap:18px}
+  .grid-3{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .card .icon{width:44px;height:44px;border-radius:12px;background:var(--red-soft);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .card .icon svg{width:24px;height:24px;stroke:var(--red);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .card p{font-size:.95rem}
+  .section-head{max-width:70ch;margin-bottom:28px}
+  .two-col{display:grid;gap:28px;align-items:center}
+  @media (min-width:900px){.two-col{grid-template-columns:1fr 1fr;gap:48px}}
 
-  footer{border-top:1px solid var(--border);padding:40px 0;color:var(--muted);font-size:.85rem}
-  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-  .footer-links{display:flex;gap:24px}
-  .footer-links a{color:var(--muted);text-decoration:none}
-  .footer-links a:hover{color:var(--text)}
+  /* Steps */
+  .steps{display:grid;gap:18px;counter-reset:step}
+  @media (min-width:720px){.steps{grid-template-columns:repeat(3,1fr)}}
+  .step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px 22px;position:relative}
+  .step .num{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--red);color:#fff;font-family:Nunito,sans-serif;font-weight:800;font-size:1.05rem;margin-bottom:14px}
+  .step h3{font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+  .step p{font-size:.95rem}
 
-  @media(max-width:768px){
-    .hero-grid{grid-template-columns:1fr;gap:40px}
-    .nav-links{display:none}
-    .hero{padding:64px 0 56px}
-    .hero-stats{gap:20px}
-    .cta-band{padding:48px 24px}
-  }
+  /* Reviews */
+  .review{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:12px}
+  .review .quote-mark{width:26px;height:26px;fill:var(--red);opacity:.85}
+  .review blockquote{font-size:.97rem;color:var(--ink);line-height:1.55}
+  .review blockquote::before{content:"\201C"}
+  .review blockquote::after{content:"\201D"}
+  .review footer{margin-top:auto;font-size:.84rem;color:var(--ink-3);line-height:1.45}
+  .review footer b{color:var(--ink);font-weight:700}
+  .review footer a{color:var(--ink-3)}
+  .review-note{font-size:.84rem;color:var(--ink-3);margin-top:18px;max-width:80ch}
+
+  /* Branch */
+  .branch-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .branch-card address{font-style:normal;line-height:1.7;color:var(--ink)}
+  .branch-card .big{font-family:Nunito,sans-serif;font-weight:800;font-size:1.25rem}
+  .branch-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:14px;margin:18px 0}
+  .branch-stats div{background:var(--paper-2);border-radius:var(--radius-sm);padding:12px 14px}
+  .branch-stats b{display:block;font-family:Nunito,sans-serif;font-size:1.4rem;color:var(--ink)}
+  .branch-stats span{font-size:.82rem;color:var(--ink-3)}
+  .towns{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin-top:14px}
+  .towns li{font-size:.84rem;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:.25rem .7rem;color:var(--ink-2)}
+  .branch-photos{display:grid;gap:16px}
+  @media (min-width:560px){.branch-photos{grid-template-columns:1fr 1fr}}
+
+  /* FAQ */
+  .faq{max-width:820px}
+  .faq details{border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;margin-bottom:10px}
+  .faq summary{list-style:none;cursor:pointer;padding:16px 48px 16px 18px;font-weight:700;color:var(--ink);position:relative}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"";position:absolute;right:18px;top:50%;width:10px;height:10px;border-right:2px solid var(--ink-3);border-bottom:2px solid var(--ink-3);transform:translateY(-70%) rotate(45deg);transition:transform .15s}
+  .faq details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
+  .faq details p{padding:0 18px 16px;font-size:.97rem}
+
+  /* CTA band */
+  .cta-band{background:var(--ink);color:#fff;border-radius:20px;padding:40px 24px;text-align:center}
+  @media (min-width:720px){.cta-band{padding:56px 48px}}
+  .cta-band h2,.cta-band p{color:#fff}
+  .cta-band p{opacity:.85;max-width:60ch;margin:0 auto 1.4rem}
+  .cta-band .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+  .cta-band .btn-outline:hover{border-color:#fff;color:#fff}
+  .cta-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+  /* Footer */
+  .site-footer{border-top:1px solid var(--line);padding:32px 0 28px;font-size:.9rem;color:var(--ink-3)}
+  .footer-grid{display:grid;gap:14px}
+  @media (min-width:720px){.footer-grid{grid-template-columns:1fr auto;align-items:start}}
+  .site-footer a{color:var(--ink-2)}
+  .footer-ids{font-size:.82rem;margin-top:6px}
+  .footer-labor{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);font-size:.78rem;color:#9aa1ad}
+  .footer-labor a{color:#9aa1ad;text-decoration:none}
+  .footer-labor a:hover{text-decoration:underline}
+
+  /* Mobile sticky call bar */
+  .call-bar{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line);display:flex;gap:10px}
+  .call-bar .btn{flex:1;min-height:46px;padding:.6rem .8rem;font-size:.95rem;white-space:nowrap}
+  .call-bar .btn-primary{flex:1.6}
+  @media (min-width:900px){.call-bar{display:none}}
+  @media (max-width:899px){body{padding-bottom:76px}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none !important}}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap nav-inner">
-    <div class="logo">Fairprice <span>Movers</span></div>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#long-distance">Long-Distance</a></li>
-      <li><a href="#how">How It Works</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#quote">Get a Quote</a></li>
-    </ul>
-    <a href="#quote" class="btn btn-primary">Free Quote</a>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow">Eastern PA &bull; 100-Mile Coverage Range &bull; Nationwide Moves</div>
-      <h1>Moving help across Eastern PA.<br><em>Trucks and crew, one call.</em></h1>
-      <p class="lead">Fairprice Movers brings the trucks. TitanForce brings the labor crew &mdash; packing, loading, unloading. Local moves, long-distance, even cross-country. No middleman. No surprises.</p>
-      <div class="hero-ctas">
-        <a href="#quote" class="btn btn-primary">Get Your Free Quote</a>
-        <a href="tel:6106282524" class="btn btn-ghost">Call (610) 628-2524</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><b>4.9&starf;</b><span>Google Rating</span></div>
-        <div class="stat"><b>146+</b><span>Reviews</span></div>
-        <div class="stat"><b>11</b><span>Years in Business</span></div>
-      </div>
-    </div>
-    <div class="hero-card" id="quote">
-      <h3>Get Your Free Quote</h3>
-      <form id="leadForm" onsubmit="return handleSubmit(event)">
-        <div class="form-row">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" required placeholder="Your name">
-        </div>
-        <div class="form-row">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" required placeholder="(610) 555-0123">
-        </div>
-        <div class="form-row">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="you@example.com">
-        </div>
-        <div class="form-row">
-          <label for="date">Move Date</label>
-          <input type="date" id="date" name="date" required>
-        </div>
-        <div class="form-row">
-          <label for="type">Move Type</label>
-          <select id="type" name="type" required>
-            <option value="">Select one</option>
-            <option value="apartment">Apartment</option>
-            <option value="house">House</option>
-            <option value="storage">Storage Unit</option>
-            <option value="office">Office</option>
-            <option value="long-distance">Long-Distance / Out-of-State</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary btn-full">Get My Free Quote &rarr;</button>
-        <p class="form-note">Free move-day prep checklist included with every booking.</p>
-      </form>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="wordmark" href="#top" aria-label="FairPrice Movers, Reading, PA">
+      <b>Fair<span>Price</span> Movers</b>
+      <small>Reading, PA branch</small>
+    </a>
+    <nav aria-label="Page sections">
+      <ul class="header-nav">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">How it works</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#branch">Reading branch</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-outline btn-quote" href="#quote">Get a quote</a>
+      <a class="btn btn-primary" href="tel:+16106282524">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.9 2z"/></svg>
+        <span>(610) 628-2524</span>
+      </a>
     </div>
   </div>
 </header>
 
-<section id="services">
-  <div class="wrap">
-    <div class="section-label">What We Do</div>
-    <h2>Full-service moving, done right.</h2>
-    <p class="section-sub">From packing to unloading, our crews handle every step with care and precision.</p>
-    <div class="services-grid">
-      <div class="service">
-        <div class="service-icon">&#128230;</div>
-        <h3>Packing &amp; Unpacking</h3>
-        <p>Professional packing with quality materials. We wrap, box, and label everything so nothing gets lost.</p>
-      </div>
-      <div class="service">
-        <div class="service-icon">&#128666;</div>
-        <h3>Loading &amp; Unloading</h3>
-        <p>Careful loading with padding and secure strapping. Furniture disassembled and reassembled on arrival.</p>
-      </div>
-      <div class="service">
-        <div class="service-icon">&#127968;</div>
-        <h3>Local &amp; Long-Distance</h3>
-        <p>Berks County to Philadelphia, Lancaster, Allentown, and beyond. 100-mile coverage range.</p>
-      </div>
-      <div class="service">
-        <div class="service-icon">&#128187;</div>
-        <h3>Office &amp; Commercial</h3>
-        <p>Business relocations handled with minimal downtime. Same-day and last-minute bookings accepted.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<main id="top">
 
-<section id="long-distance" style="background:var(--surface)">
-  <div class="wrap">
-    <div class="section-label">Where We Go</div>
-    <h2>Out-of-state moves pay the most.</h2>
-    <p class="section-sub">Fairprice doesn't stop at the county line. We move people anywhere in the contiguous US &mdash; Massachusetts, Texas, Arizona, wherever the money's right.</p>
-    <div class="services-grid">
-      <div class="service">
-        <div class="service-icon">&#128205;</div>
-        <h3>Northeast Corridor</h3>
-        <p>Massachusetts, New York, New Jersey, Connecticut. Fastest-growing long-distance lane from PA.</p>
+  <!-- Hero: FairPrice's Reading H1 wording, branch phone click-to-call, quote form -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Reading, PA · 306 S 10th St</span>
+        <h1 id="hero-title">Experienced Local and Long-Distance Movers in Reading, PA</h1>
+        <p class="lead">Local moves within Reading and Berks County, long-distance relocations, packing and unpacking, and careful handling of pianos, antiques and large furniture. A personalized moving plan, built around your date.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="tel:+16106282524">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.9 2z"/></svg>
+            <span class="phone-big">Call (610) 628-2524</span>
+          </a>
+          <a class="btn btn-outline" href="#quote">Request a quote online</a>
+        </div>
+        <p class="rating-line">
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.4l-5.9 3.2 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
+          </span>
+          <span><b>4.8 on Google</b> for the Reading listing, as relayed by <a href="https://www.movebuddha.com/movers/pa/fairprice-movers-3214/" rel="noopener" target="_blank">moveBuddha</a> (checked Oct 11, 2026)</span>
+        </p>
+        <!-- Hotlinked placeholder: FairPrice's own crew photo (c) FairPrice Movers. Replace with a photo FairPrice supplies; do not copy into the repo. -->
+        <figure class="photo hero-figure" data-replace="Fairprice-supplied photo">
+          <img src="https://fairpricemovers.com/wp-content/uploads/2026/04/FP-Group-1-Retouched-Alt-16x9-1.png" alt="FairPrice Movers crew group photo" width="800" height="450" loading="eager" decoding="async">
+          <figcaption>Placeholder: replace with FairPrice-supplied photo</figcaption>
+        </figure>
       </div>
-      <div class="service">
-        <div class="service-icon">&#127758;</div>
-        <h3>Cross-Country</h3>
-        <p>Texas, Arizona, Florida, California. Full-service interstate moves with direct crews.</p>
-      </div>
-      <div class="service">
-        <div class="service-icon">&#128187;</div>
-        <h3>Any of the 48 States</h3>
-        <p>If the move pays, we do it. Licensed, insured, and ready to roll.</p>
-      </div>
-      <div class="service">
-        <div class="service-icon">&#128666;</div>
-        <h3>Labor Crew Available</h3>
-        <p>TitanForce labor crew for packing, loading, and unloading on any job. Local or long-distance.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="how">
-  <div class="wrap">
-    <div class="section-label">Simple Process</div>
-    <h2>How it works.</h2>
-    <p class="section-sub">Three steps from quote to move day. No hidden fees, no surprises.</p>
-    <div class="steps">
-      <div class="step">
-        <h3>Request a quote</h3>
-        <p>Fill out the form or call. We respond within hours with transparent pricing for your move.</p>
-      </div>
-      <div class="step">
-        <h3>We confirm the details</h3>
-        <p>Move date, crew size, and services confirmed. You know exactly what to expect before move day.</p>
-      </div>
-      <div class="step">
-        <h3>Crew shows up ready</h3>
-        <p>On-time arrival, proper equipment, and careful handling from first box to last. Trust the best.</p>
+      <div class="quote-card" id="quote">
+        <h2>Request your free quote</h2>
+        <p class="sub">Tell us about the move. We follow up by phone to confirm the details. In a hurry? <a href="tel:+16106282524">Call (610) 628-2524</a>.</p>
+        <form id="lead-form" action="/api/lead" method="post" novalidate>
+          <div class="field">
+            <label for="f-name">Full name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="(610) 555-0100">
+            </div>
+            <div class="field">
+              <label for="f-email">Email <span class="opt">(optional)</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="160">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-date">Move date <span class="opt">(or best guess)</span></label>
+              <input id="f-date" name="moveDate" type="date">
+            </div>
+            <div class="field">
+              <label for="f-size">Home size</label>
+              <select id="f-size" name="homeSize" required>
+                <option value="">Select one</option>
+                <option value="studio">Studio</option>
+                <option value="1-bedroom">1 bedroom</option>
+                <option value="2-bedroom">2 bedrooms</option>
+                <option value="3-bedroom">3 bedrooms</option>
+                <option value="4-bedroom-plus">4+ bedrooms</option>
+                <option value="office">Office / commercial</option>
+                <option value="storage-unit">Storage unit</option>
+                <option value="few-items">A few items only</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-from">Moving from <span class="opt">(town or ZIP)</span></label>
+              <input id="f-from" name="fromPlace" type="text" autocomplete="off" required minlength="2" maxlength="80" placeholder="Reading 19602">
+            </div>
+            <div class="field">
+              <label for="f-to">Moving to <span class="opt">(town or ZIP)</span></label>
+              <input id="f-to" name="toPlace" type="text" autocomplete="off" required minlength="2" maxlength="80" placeholder="Wyomissing 19610">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-notes">Anything we should know? <span class="opt">(optional)</span></label>
+            <textarea id="f-notes" name="notes" maxlength="1000" placeholder="Stairs or elevator, piano or safe, packing needed, parking, timing"></textarea>
+          </div>
+          <!-- Honeypot: hidden from people, filled only by bots. -->
+          <div class="hp" aria-hidden="true">
+            <label for="f-hp">Company website</label>
+            <input id="f-hp" name="company_website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="btn btn-primary btn-block" type="submit" id="lead-submit">Request my quote</button>
+          <p class="form-note">No obligation. Your details go only to the FairPrice Reading team and are used to call you back about this move.</p>
+          <div class="status" id="lead-status" role="status" aria-live="polite"></div>
+          <noscript><p class="form-note">This form needs JavaScript. Call <a href="tel:+16106282524">(610) 628-2524</a> instead.</p></noscript>
+        </form>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="reviews" style="background:var(--surface)">
-  <div class="wrap">
-    <div class="section-label">What Customers Say</div>
-    <h2>4.9 stars across 146+ reviews.</h2>
-    <p class="section-sub">Real feedback from real moves across Berks County and beyond.</p>
-    <div class="reviews">
-      <div class="review">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"This was my fourth move in six years and easily the smoothest. No scratched furniture, no late start, none of the usual headaches."</p>
-        <div class="reviewer">Verified Customer <span>&bull; Reading, PA</span></div>
+  <!-- Trust strip: wording from FairPrice's own "The FairPrice Standard" footer block -->
+  <aside class="trust" aria-label="About FairPrice Movers">
+    <div class="wrap trust-grid">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <div><b>Since 2011</b><span>Trusted local and long-distance movers</span></div>
       </div>
-      <div class="review">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Genuinely helpful crew. They disconnected my washer and dryer, moved them, and set them up at the new place without any trouble."</p>
-        <div class="reviewer">Verified Customer <span>&bull; Berks County</span></div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div><b>Direct carrier</b><span>Your move is coordinated directly by FairPrice Movers</span></div>
       </div>
-      <div class="review">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Guys did a great job packing up and unpacking. Very friendly and helpful. Price was very fair for the service."</p>
-        <div class="reviewer">Verified Customer <span>&bull; Wyomissing</span></div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg>
+        <div><b>Transparent pricing</b><span>Clear estimates and straightforward planning before moving day</span></div>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <div><b>Local branch</b><span>306 S 10th St, Reading, PA 19602</span></div>
       </div>
     </div>
-  </div>
-</section>
+  </aside>
 
-<section>
-  <div class="wrap">
-    <div class="cta-band">
-      <h2>Ready when you are.</h2>
-      <p>Free quote, no obligation. Free move-day prep checklist included with every booking.</p>
-      <a href="#quote" class="btn btn-primary">Get Your Free Quote &rarr;</a>
-    </div>
-  </div>
-</section>
+  <!-- Services: FairPrice's Reading service list -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Moving services</span>
+        <h2 id="services-title">Moving services in Reading, PA</h2>
+        <p class="lead">From expert packing and secure loading to safe transportation and thoughtful setup at your new space, FairPrice Movers manages every detail.</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg></div>
+          <h3>Local moving</h3>
+          <p>Home and apartment moves within Reading and across Berks County, from downtown row homes to suburban developments in Wyomissing, Exeter Township and Muhlenberg.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/><circle cx="12" cy="12" r="10"/></svg></div>
+          <h3>Long-distance moving</h3>
+          <p>Relocations from Reading to anywhere in Pennsylvania or across the U.S., with careful packing, secure transport and organized delivery.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></div>
+          <h3>Packing and unpacking</h3>
+          <p>Full packing with quality materials and labeled boxes, from furniture and household goods to glassware, electronics and valuables. Unpacking on arrival if you want it.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>Last-minute and same-day moves</h3>
+          <p>Another mover canceled, the lease changed, or the building access window moved? The Reading team helps you build a fast, organized plan.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M2 13h20"/></svg></div>
+          <h3>Commercial and office moving</h3>
+          <p>Office, retail and medical-practice relocations with equipment transport and inventory tracking. Nights and weekends available to fit your operating hours.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v11"/><path d="M2 19h20M8 6V4h8v2M8 11h8M8 15h8"/></svg></div>
+          <h3>Piano, art and antique moving</h3>
+          <p>Specialized handling for pianos, antique furniture, fine art, safes and pool tables, using the proper tools, padding and techniques.</p>
+        </article>
+      </div>
 
-<footer>
-  <div class="wrap footer-inner">
-    <div>Fairprice Movers &bull; 306 S 10th St, Reading, PA 19602 &bull; (610) 628-2524</div>
-    <div class="footer-links">
-      <a href="https://titanforcemovers.com" target="_blank">Powered by TitanForce</a>
-      <a href="https://fairpricemovers.com" target="_blank">fairpricemovers.com</a>
+      <div class="two-col" style="margin-top:36px">
+        <!-- Hotlinked placeholder: FairPrice's own photo (c) FairPrice Movers. Replace with a FairPrice-supplied photo; do not copy into the repo. -->
+        <figure class="photo" data-replace="Fairprice-supplied photo">
+          <img src="https://fairpricemovers.com/wp-content/uploads/2026/04/FP-Supporting-12A.png" alt="FairPrice Movers worker carrying moving boxes down stairs during a residential move" width="800" height="450" loading="lazy" decoding="async">
+          <figcaption>Placeholder: replace with FairPrice-supplied photo</figcaption>
+        </figure>
+        <!-- Hotlinked placeholder: FairPrice's own photo (c) FairPrice Movers. Origin uncertain (generic filename); confirm with FairPrice. -->
+        <figure class="photo" data-replace="Fairprice-supplied photo">
+          <img src="https://fairpricemovers.com/wp-content/uploads/2025/06/piano.jpg" alt="Large ebony piano wrapped in cling film to protect against scratches while being transported" width="800" height="450" loading="lazy" decoding="async">
+          <figcaption>Placeholder: replace with FairPrice-supplied photo</figcaption>
+        </figure>
+      </div>
     </div>
+  </section>
+
+  <!-- Process: FairPrice's three steps, in their wording -->
+  <section id="process" class="alt" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The FairPrice Movers process</span>
+        <h2 id="process-title">Three steps from quote to move day</h2>
+        <p class="lead">Free estimates and customized pricing designed around your specific needs, then a plan, then the move.</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <span class="num" aria-hidden="true">1</span>
+          <h3>Step 1: Request a free quote</h3>
+          <p>Get started with a free moving quote from FairPrice Movers in Reading. Transparent pricing provides a clear view of costs, ensuring no surprises, just reliable, high-quality service tailored to your unique moving needs.</p>
+        </article>
+        <article class="step">
+          <span class="num" aria-hidden="true">2</span>
+          <h3>Step 2: Get a personalized moving plan</h3>
+          <p>After requesting your free quote, we work with you to create a personalized moving plan tailored to your specific needs. The team at FairPrice Movers in Reading customizes every detail to ensure a smooth, efficient move.</p>
+        </article>
+        <article class="step">
+          <span class="num" aria-hidden="true">3</span>
+          <h3>Step 3: Enjoy the safe transition</h3>
+          <p>With your personalized plan in place, sit back and enjoy a safe, stress-free transition. The experienced team handles everything with care, ensuring your belongings arrive securely at your new destination.</p>
+        </article>
+      </div>
+      <div class="two-col" style="margin-top:36px">
+        <div>
+          <h3 style="font-size:1.35rem">Moving day, handled</h3>
+          <p>When the crew arrives at your new home or business, furniture and boxes go exactly where you need them, so the first night is organized instead of chaotic. Questions along the way? <a href="tel:+16106282524">Call the Reading branch at (610) 628-2524</a>.</p>
+          <p style="margin-top:12px"><a class="btn btn-primary" href="#quote">Request a quote</a></p>
+        </div>
+        <!-- Hotlinked placeholder: FairPrice's own action photo (c) FairPrice Movers. Replace with a FairPrice-supplied photo; do not copy into the repo. -->
+        <figure class="photo" data-replace="Fairprice-supplied photo">
+          <img src="https://fairpricemovers.com/wp-content/uploads/2026/04/FP-Action-4-1024x576.png" alt="FairPrice Movers crew at work on a move" width="1024" height="576" loading="lazy" decoding="async">
+          <figcaption>Placeholder: replace with FairPrice-supplied photo</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews: only quotes from the research pack, each with reviewer, platform and link -->
+  <section id="reviews" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Reviews</span>
+        <h2 id="reviews-title">What Reading-area customers say</h2>
+        <p class="lead">Excerpts from public reviews of the FairPrice Movers Reading branch on Google, Yelp and Nextdoor. Names appear as each platform shows them.</p>
+      </div>
+      <div class="grid grid-3">
+
+        <article class="review">
+          <svg class="quote-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 5C4.5 5 3 7.1 3 9.9c0 3.4 2.2 6.7 6.3 9.1l1-1.5C8.2 15.9 7.3 14.2 7.2 13c1.9 0 3.3-1.4 3.3-3.4C10.5 7 9.1 5 7.2 5zm9.5 0c-2.7 0-4.2 2.1-4.2 4.9 0 3.4 2.2 6.7 6.3 9.1l1-1.5c-2.1-1.6-3-3.3-3.1-4.5 1.9 0 3.3-1.4 3.3-3.4C20 7 18.6 5 16.7 5z"/></svg>
+          <blockquote>Our movers were great. Incredibly efficient and had our move completed in 2 hours. We were so impressed! They were very polite and respectful and navigated 2 tricky row homes + heavy walnut furniture (a horrible combination for the average &hellip;</blockquote>
+          <footer><b>Alexandra M.</b> · Google review, about July 2026 · <a href="https://maps.google.com/?cid=512832905521014162" rel="noopener" target="_blank">Google Business Profile</a> (excerpt as Google shows it)</footer>
+        </article>
+
+        <article class="review">
+          <svg class="quote-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 5C4.5 5 3 7.1 3 9.9c0 3.4 2.2 6.7 6.3 9.1l1-1.5C8.2 15.9 7.3 14.2 7.2 13c1.9 0 3.3-1.4 3.3-3.4C10.5 7 9.1 5 7.2 5zm9.5 0c-2.7 0-4.2 2.1-4.2 4.9 0 3.4 2.2 6.7 6.3 9.1l1-1.5c-2.1-1.6-3-3.3-3.1-4.5 1.9 0 3.3-1.4 3.3-3.4C20 7 18.6 5 16.7 5z"/></svg>
+          <blockquote>Fabulous! Helped move my mom from reading to Hershey. There were 3 movers who backed the truck right up to the house and were so fast and strong!! They also used a hydronic gate, which made it&hellip;</blockquote>
+          <footer><b>Alyssa B.</b> · Yelp review (Reading branch), May 18, 2026 · shown as the <a href="https://www.mapquest.com/us/pennsylvania/fairprice-movers-379678360" rel="noopener" target="_blank">MapQuest top review</a> (excerpt)</footer>
+        </article>
+
+        <article class="review">
+          <svg class="quote-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 5C4.5 5 3 7.1 3 9.9c0 3.4 2.2 6.7 6.3 9.1l1-1.5C8.2 15.9 7.3 14.2 7.2 13c1.9 0 3.3-1.4 3.3-3.4C10.5 7 9.1 5 7.2 5zm9.5 0c-2.7 0-4.2 2.1-4.2 4.9 0 3.4 2.2 6.7 6.3 9.1l1-1.5c-2.1-1.6-3-3.3-3.1-4.5 1.9 0 3.3-1.4 3.3-3.4C20 7 18.6 5 16.7 5z"/></svg>
+          <blockquote>I moved twice, from Boston to reading, PA last year and recently from reading to Downingtown. Used Fairprice movers both times. TNO and his team were Very reasonably priced, on time, hardworking people, caused zero damage. The second time I hired them to pack as well. 100% recommend.</blockquote>
+          <footer><b>S. S., Honey Brook, PA</b> · Nextdoor recommendation, Dec 28 (verified in 2025) · <a href="https://nextdoor.com/pages/fairprice-movers-reading-pa/" rel="noopener" target="_blank">Nextdoor, Reading page</a></footer>
+        </article>
+
+        <article class="review">
+          <svg class="quote-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 5C4.5 5 3 7.1 3 9.9c0 3.4 2.2 6.7 6.3 9.1l1-1.5C8.2 15.9 7.3 14.2 7.2 13c1.9 0 3.3-1.4 3.3-3.4C10.5 7 9.1 5 7.2 5zm9.5 0c-2.7 0-4.2 2.1-4.2 4.9 0 3.4 2.2 6.7 6.3 9.1l1-1.5c-2.1-1.6-3-3.3-3.1-4.5 1.9 0 3.3-1.4 3.3-3.4C20 7 18.6 5 16.7 5z"/></svg>
+          <blockquote>The three movers arrived promptly as scheduled on the day of the move. They responded very fast for quotes, and the booking process was smooth. [&hellip;] Alex and the crew worked tirelessly and meticulously to ensure nothing was damaged (both old and new house and our items). I would give five stars to the movers.</blockquote>
+          <footer><b>S. M., Reading, PA</b> · Nextdoor recommendation, May 21, 2025 · <a href="https://nextdoor.com/pages/fairprice-movers-reading-pa/" rel="noopener" target="_blank">Nextdoor, Reading page</a> (one sentence about pricing omitted)</footer>
+        </article>
+
+        <article class="review">
+          <svg class="quote-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 5C4.5 5 3 7.1 3 9.9c0 3.4 2.2 6.7 6.3 9.1l1-1.5C8.2 15.9 7.3 14.2 7.2 13c1.9 0 3.3-1.4 3.3-3.4C10.5 7 9.1 5 7.2 5zm9.5 0c-2.7 0-4.2 2.1-4.2 4.9 0 3.4 2.2 6.7 6.3 9.1l1-1.5c-2.1-1.6-3-3.3-3.1-4.5 1.9 0 3.3-1.4 3.3-3.4C20 7 18.6 5 16.7 5z"/></svg>
+          <blockquote>Originally, I had planned to use a larger moving company, but their prices were ridiculous. That&rsquo;s when I found Fairprice Movers. They were not only affordable but also incredibly skilled and professional. So glad I switched. Highly recommend!</blockquote>
+          <footer><b>S. B., Wyomissing, PA</b> · Nextdoor recommendation, Apr 28, 2025 · <a href="https://nextdoor.com/pages/fairprice-movers-reading-pa/" rel="noopener" target="_blank">Nextdoor, Reading page</a></footer>
+        </article>
+
+        <article class="review">
+          <svg class="quote-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 5C4.5 5 3 7.1 3 9.9c0 3.4 2.2 6.7 6.3 9.1l1-1.5C8.2 15.9 7.3 14.2 7.2 13c1.9 0 3.3-1.4 3.3-3.4C10.5 7 9.1 5 7.2 5zm9.5 0c-2.7 0-4.2 2.1-4.2 4.9 0 3.4 2.2 6.7 6.3 9.1l1-1.5c-2.1-1.6-3-3.3-3.1-4.5 1.9 0 3.3-1.4 3.3-3.4C20 7 18.6 5 16.7 5z"/></svg>
+          <blockquote>I had a great experience with Fairprice Movers. Scheduling was easy, the team was friendly, and everything arrived safely at my new home. Their attention to detail and reliability truly stood out.</blockquote>
+          <footer><b>Robert N.</b> · Google review, about July 2026 · <a href="https://maps.google.com/?cid=512832905521014162" rel="noopener" target="_blank">Google Business Profile</a></footer>
+        </article>
+
+        <article class="review">
+          <svg class="quote-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 5C4.5 5 3 7.1 3 9.9c0 3.4 2.2 6.7 6.3 9.1l1-1.5C8.2 15.9 7.3 14.2 7.2 13c1.9 0 3.3-1.4 3.3-3.4C10.5 7 9.1 5 7.2 5zm9.5 0c-2.7 0-4.2 2.1-4.2 4.9 0 3.4 2.2 6.7 6.3 9.1l1-1.5c-2.1-1.6-3-3.3-3.1-4.5 1.9 0 3.3-1.4 3.3-3.4C20 7 18.6 5 16.7 5z"/></svg>
+          <blockquote>GREAT experience! The guys were professional, organized and friendly! They took care of my mom&rsquo;s property and got us out and into her new space quickly and carefully. It was a difficult move&hellip;</blockquote>
+          <footer><b>Latonia B.</b> · Yelp review (Reading branch), Jul 2, 2025 · via <a href="https://local.yahoo.com/info-212024440-Fairprice-Movers/" rel="noopener" target="_blank">Yahoo Local's Yelp feed</a> (excerpt)</footer>
+        </article>
+
+        <article class="review">
+          <svg class="quote-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 5C4.5 5 3 7.1 3 9.9c0 3.4 2.2 6.7 6.3 9.1l1-1.5C8.2 15.9 7.3 14.2 7.2 13c1.9 0 3.3-1.4 3.3-3.4C10.5 7 9.1 5 7.2 5zm9.5 0c-2.7 0-4.2 2.1-4.2 4.9 0 3.4 2.2 6.7 6.3 9.1l1-1.5c-2.1-1.6-3-3.3-3.1-4.5 1.9 0 3.3-1.4 3.3-3.4C20 7 18.6 5 16.7 5z"/></svg>
+          <blockquote>The crew took great care to pack my high-end leather sofa for shipment overseas. They used shrink wrap, bubble wrap, and shrink wrap again with proper layering, and they protected all the edges&hellip;</blockquote>
+          <footer><b>Stephanie R.</b> · Yelp review (Reading branch), Sep 25, 2026 · via <a href="https://local.yahoo.com/info-212024440-Fairprice-Movers/" rel="noopener" target="_blank">Yahoo Local's Yelp feed</a> (excerpt)</footer>
+        </article>
+
+        <article class="review">
+          <svg class="quote-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 5C4.5 5 3 7.1 3 9.9c0 3.4 2.2 6.7 6.3 9.1l1-1.5C8.2 15.9 7.3 14.2 7.2 13c1.9 0 3.3-1.4 3.3-3.4C10.5 7 9.1 5 7.2 5zm9.5 0c-2.7 0-4.2 2.1-4.2 4.9 0 3.4 2.2 6.7 6.3 9.1l1-1.5c-2.1-1.6-3-3.3-3.1-4.5 1.9 0 3.3-1.4 3.3-3.4C20 7 18.6 5 16.7 5z"/></svg>
+          <blockquote>Fairprice movers are professional and courteous. They provide great communication from the beginning to move day. They moved my 3 bedroom house in a morning and were very careful with every item, wrapping every piece of furniture perfectly.</blockquote>
+          <footer><b>Google reviewer</b> (name not shown by moveBuddha) · Google review of the Reading listing, relayed by <a href="https://www.movebuddha.com/movers/pa/fairprice-movers-3214/" rel="noopener" target="_blank">moveBuddha</a></footer>
+        </article>
+
+      </div>
+      <p class="review-note">Two more Google reviews relayed by moveBuddha are not shown here to keep the page short: &ldquo;Excellent movers in town, the guys showed up on time and did a great job&hellip;&rdquo; and &ldquo;I&rsquo;ve moved several times, and Fair Price was by far the best moving experience I&rsquo;ve had&hellip;&rdquo; Read them all on <a href="https://maps.google.com/?cid=512832905521014162" rel="noopener" target="_blank">Google</a>, <a href="https://nextdoor.com/pages/fairprice-movers-reading-pa/" rel="noopener" target="_blank">Nextdoor</a> and <a href="https://www.mapquest.com/us/pennsylvania/fairprice-movers-379678360" rel="noopener" target="_blank">Yelp via MapQuest</a>.</p>
+    </div>
+  </section>
+
+  <!-- Reading branch -->
+  <section id="branch" class="alt" aria-labelledby="branch-title">
+    <div class="wrap two-col">
+      <div class="branch-card">
+        <span class="eyebrow">Reading, PA branch</span>
+        <h2 id="branch-title">Visit FairPrice Movers in Reading, PA</h2>
+        <address>
+          <span class="big">FairPrice Movers</span><br>
+          306 S 10th St<br>
+          Reading, PA 19602<br>
+          <a href="tel:+16106282524"><b>(610) 628-2524</b></a>
+        </address>
+        <div class="branch-stats">
+          <div><b>Since 2011</b><span>Trusted local and long-distance movers</span></div>
+          <div><b><span id="years-since">15</span> years</b><span>Moving families and businesses</span></div>
+          <div><b>Reading dispatch</b><span>Berks County and Southeastern PA</span></div>
+        </div>
+        <p>Serving Reading and the surrounding Berks County towns, including:</p>
+        <ul class="towns" aria-label="Towns served">
+          <li>Wyomissing</li><li>West Reading</li><li>Shillington</li><li>Sinking Spring</li><li>West Lawn</li><li>Exeter Township</li><li>Muhlenberg</li><li>Temple</li><li>Laureldale</li><li>Blandon</li><li>Fleetwood</li><li>Kutztown</li><li>Birdsboro</li><li>Mohnton</li><li>Hamburg</li><li>Boyertown</li><li>Leesport</li><li>Robesonia</li>
+        </ul>
+        <p class="small muted" style="margin-top:14px">Long-distance moves run from Reading to anywhere in Pennsylvania or across the U.S. Full company details at <a href="https://fairpricemovers.com/movers-near-me/pennsylvania/reading/" rel="noopener" target="_blank">fairpricemovers.com</a>.</p>
+      </div>
+      <div class="branch-photos">
+        <!-- Hotlinked placeholder: FairPrice's own job photo (Jun 2025) (c) FairPrice Movers. Replace with a FairPrice-supplied photo; do not copy into the repo. -->
+        <figure class="photo tall" data-replace="Fairprice-supplied photo">
+          <img src="https://fairpricemovers.com/wp-content/uploads/2025/06/IMG-20250618-WA0011.jpg" alt="FairPrice Movers job photo from June 2025" width="800" height="600" loading="lazy" decoding="async">
+          <figcaption>Placeholder: replace with FairPrice-supplied photo</figcaption>
+        </figure>
+        <!-- Hotlinked placeholder: FairPrice trucks in snow (c) FairPrice Movers. Replace with a FairPrice-supplied photo; do not copy into the repo. -->
+        <figure class="photo tall" data-replace="Fairprice-supplied photo">
+          <img src="https://fairpricemovers.com/wp-content/uploads/2025/02/Trucks-in-snow.jpg" alt="FairPrice Movers trucks parked in snow" width="800" height="600" loading="lazy" decoding="async">
+          <figcaption>Placeholder: replace with FairPrice-supplied photo</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ: FairPrice's Reading FAQ topics, minus pricing -->
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2 id="faq-title">Frequently asked questions about moving in Reading, PA</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Do you offer long-distance moving from Reading, PA?</summary>
+          <p>Yes. FairPrice Movers provides both local and long-distance moving services from Reading to anywhere in Pennsylvania or across the U.S., with careful handling of your belongings every step of the way.</p>
+        </details>
+        <details>
+          <summary>Can you move specialty items like pianos, antiques, or large furniture?</summary>
+          <p>Yes. The team is equipped to handle specialty items including pianos, antiques, large appliances, and custom furniture, using the proper tools, padding, and techniques to keep everything protected.</p>
+        </details>
+        <details>
+          <summary>Do you offer packing services and short-term storage in Reading?</summary>
+          <p>Yes. Full-service packing and unpacking is available, along with storage options for short- and long-term needs when you are downsizing, remodeling, or in between homes.</p>
+        </details>
+        <details>
+          <summary>How fast can a last-minute move in Reading start?</summary>
+          <p>FairPrice's Reading same-day page says most same-day moves in Reading can begin within 1 to 4 hours, depending on scheduling, traffic conditions, move size, and truck availability. Call <a href="tel:+16106282524">(610) 628-2524</a> for the fastest availability update.</p>
+        </details>
+        <details>
+          <summary>What should I have ready when I ask for a quote?</summary>
+          <p>Your move date (or best guess), both addresses or towns, the size of the home, stairs or elevators at either end, parking or building access notes, and any pianos, safes, or oversized pieces. The online form above asks for exactly these.</p>
+        </details>
+        <details>
+          <summary>Where can I read reviews of the Reading branch?</summary>
+          <p>On <a href="https://maps.google.com/?cid=512832905521014162" rel="noopener" target="_blank">Google</a>, <a href="https://nextdoor.com/pages/fairprice-movers-reading-pa/" rel="noopener" target="_blank">Nextdoor</a> and Yelp (also mirrored on <a href="https://www.mapquest.com/us/pennsylvania/fairprice-movers-379678360" rel="noopener" target="_blank">MapQuest</a>). Several are quoted above with links to their source.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA: FairPrice's "Call FairPrice Movers Today!" heading -->
+  <section aria-labelledby="cta-title" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2 id="cta-title">Call FairPrice Movers Today!</h2>
+        <p>Whether you are planning a local move or a long-distance relocation, the Reading team is here to guide and support you every step of the way. Request your free moving quote today.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="tel:+16106282524">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.9 2z"/></svg>
+            <span>Call (610) 628-2524</span>
+          </a>
+          <a class="btn btn-outline" href="#quote">Request a quote online</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <b style="color:var(--ink)">FairPrice Movers</b> · Reading, PA branch<br>
+        306 S 10th St, Reading, PA 19602 · <a href="tel:+16106282524">(610) 628-2524</a> · <a href="https://fairpricemovers.com" rel="noopener" target="_blank">fairpricemovers.com</a>
+        <div class="footer-ids">US DOT 2192738 · PA PUC A8923356 · &copy; <span id="year">2026</span> FairPrice Movers. All rights reserved.</div>
+      </div>
+      <div>
+        <a href="https://fairpricemovers.com/privacy-policy/" rel="noopener" target="_blank">Privacy Policy</a> · <a href="https://fairpricemovers.com/contact/" rel="noopener" target="_blank">Contact</a> · <a href="https://fairpricemovers.com/claims/" rel="noopener" target="_blank">Claims</a>
+      </div>
+    </div>
+    <div class="footer-labor">Labor crews on busy days by <a href="https://titanforcemovers.com" rel="noopener" target="_blank">TitanForce Movers</a>, Blandon PA · <a href="tel:+14842917444">484-291-7444</a></div>
   </div>
 </footer>
 
+<div class="call-bar" aria-label="Quick actions">
+  <a class="btn btn-primary" href="tel:+16106282524">Call (610) 628-2524</a>
+  <a class="btn btn-outline" href="#quote">Get a quote</a>
+</div>
+
 <script>
-function handleSubmit(e){
-  e.preventDefault();
-  var btn = e.target.querySelector('button[type="submit"]);
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  setTimeout(function(){
-    btn.textContent = 'Quote Request Sent!';
-    btn.style.background = '#22c55e';
-    e.target.reset();
-  }, 1200);
-  return false;
-}
+(function () {
+  'use strict';
+  var yearNow = new Date().getFullYear();
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = String(yearNow);
+  var yearsEl = document.getElementById('years-since');
+  if (yearsEl && yearNow >= 2011) yearsEl.textContent = String(yearNow - 2011);
+
+  var form = document.getElementById('lead-form');
+  var status = document.getElementById('lead-status');
+  var button = document.getElementById('lead-submit');
+  if (!form || !status || !button) return;
+
+  var NOT_SENT = 'Not sent. Call <a href="tel:+16106282524">(610) 628-2524</a>.';
+
+  function show(kind, html) {
+    status.className = 'status show ' + kind;
+    status.innerHTML = html;
+  }
+
+  function digits(value) { return String(value || '').replace(/\D/g, ''); }
+
+  function validPhone(value) {
+    var d = digits(value);
+    if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1);
+    return d.length === 10 && d.charAt(0) !== '0' && d.charAt(0) !== '1';
+  }
+
+  function firstProblem(data) {
+    if (!data.name || data.name.length < 2) return 'Please enter your name.';
+    if (!validPhone(data.phone)) return 'Please enter a 10-digit phone number so we can call you back.';
+    if (data.email && !/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(data.email)) return 'That email address does not look right.';
+    if (!data.fromPlace || data.fromPlace.length < 2) return 'Where are you moving from?';
+    if (!data.toPlace || data.toPlace.length < 2) return 'Where are you moving to?';
+    if (!data.homeSize) return 'Please pick a home size.';
+    return '';
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var fd = new FormData(form);
+    var data = {
+      name: String(fd.get('name') || '').trim(),
+      phone: String(fd.get('phone') || '').trim(),
+      email: String(fd.get('email') || '').trim(),
+      moveDate: String(fd.get('moveDate') || '').trim(),
+      fromPlace: String(fd.get('fromPlace') || '').trim(),
+      toPlace: String(fd.get('toPlace') || '').trim(),
+      homeSize: String(fd.get('homeSize') || '').trim(),
+      notes: String(fd.get('notes') || '').trim(),
+      company_website: String(fd.get('company_website') || '')
+    };
+    var problem = firstProblem(data);
+    if (problem) { show('err', problem); return; }
+
+    button.disabled = true;
+    var label = button.textContent;
+    button.textContent = 'Sending…';
+    status.className = 'status';
+
+    var controller = typeof AbortController === 'function' ? new AbortController() : null;
+    var timer = controller ? setTimeout(function () { controller.abort(); }, 12000) : null;
+
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data),
+      signal: controller ? controller.signal : undefined
+    }).then(function (response) {
+      return response.json().catch(function () { return {}; }).then(function (body) {
+        return { ok: response.ok, body: body };
+      });
+    }).then(function (result) {
+      if (result.ok && result.body && result.body.received === true) {
+        show('ok', 'Received. Expect a call back to go over the details and confirm your date. Need it sooner? <a href="tel:+16106282524">Call (610) 628-2524</a>.');
+        form.reset();
+        button.textContent = 'Request sent';
+      } else {
+        show('err', NOT_SENT);
+        button.disabled = false;
+        button.textContent = label;
+      }
+    }).catch(function () {
+      show('err', NOT_SENT);
+      button.disabled = false;
+      button.textContent = label;
+    }).then(function () {
+      if (timer) clearTimeout(timer);
+    });
+  });
+})();
 </script>
 </body>
 </html>
