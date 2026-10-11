@@ -53,7 +53,6 @@ const banned = [
   [/\$\s?\d/, "a dollar amount"],
   [/\b(insured|licensed|bonded|certified|COI)\b/i, "an insurance / license claim"],
   [/\bcrew of \d|\b\d+-(man|person) crew\b/i, "a crew size"],
-  [/\b(?:484|610)-?\s?(?:\d{3})-?\s?\d{4}\b/g, null],
 ];
 for (const [re, label] of banned) {
   if (label && re.test(text)) problems.push(`page text contains ${label}: ${text.match(re)[0]}`);

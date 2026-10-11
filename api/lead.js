@@ -56,13 +56,15 @@ function clientIp(req) {
   return ip || "unknown";
 }
 
-/** Browsers send Origin on cross-site POSTs; refuse any that is not this page's host. */
+/** Browsers send Origin (or at least Referer) on form POSTs; refuse anything else. */
 function sameOrigin(req) {
-  const origin = req.headers.origin;
-  if (!origin) return true;
-  const host = req.headers["x-forwarded-host"] || req.headers.host || "";
+  const host = String(req.headers["x-forwarded-host"] || req.headers.host || "")
+    .split(",")[0]
+    .trim();
+  const source = req.headers.origin || req.headers.referer;
+  if (!host || !source) return false;
   try {
-    return new URL(origin).host === String(host).split(",")[0].trim();
+    return new URL(source).host === host;
   } catch {
     return false;
   }
